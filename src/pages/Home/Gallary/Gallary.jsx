@@ -3,17 +3,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-
+import "swiper/swiper-bundle.min.css";
+import { Navigation, Pagination, Scrollbar } from "swiper";
 
 const Gallary = () => {
     return (
         <div className='space-y-10 mb-10 p-10'>
             <h1 className='text-center font-extrabold text-3xl'>Gallary</h1>
          <Swiper
+          modules={[Navigation, Pagination, Scrollbar]}
       spaceBetween={50}
       slidesPerView={2}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      navigation
+        pagination={{ clickable: true }}
+       
+        scrollbar={{ draggable: true }}
     >
        
   
