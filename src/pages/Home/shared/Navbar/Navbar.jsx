@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from '../../../../assets/logo.png'
+import logo from '../../../../assets/logo3.png'
 import './Navbar.css'
 const Navbar = () => {
   const navItems = (
@@ -49,9 +49,9 @@ const Navbar = () => {
           </ul>
         </div>
      
-            <img className="circle" src={logo} style={{width:"120px"}}/>
+            <img  src={logo} style={{width:"150px"}}/>
        
-        <Link className=" normal-case text-2xl font-bold">Speedy-Racer-Toys</Link>
+        {/* <Link className=" normal-case text-2xl font-bold">Speedy-Racer-Toys</Link> */}
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -65,7 +65,7 @@ const Navbar = () => {
             <img src="https://i.ibb.co/Btgytwv/favicon.png" />
           </div>
         </label>
-        <a className="btn">Login</a>
+        <Link to="/login" className="btn">Login</Link>
       </div>
     </div>
   );
