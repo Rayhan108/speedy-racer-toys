@@ -4,20 +4,32 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import "swiper/swiper-bundle.min.css";
-import { Navigation, Pagination, Scrollbar } from "swiper";
+import {EffectCoverflow, Navigation, Pagination, Scrollbar } from "swiper";
 
 const Gallary = () => {
     return (
         <div className='space-y-10 mb-10 p-10'>
             <h1 className='text-center font-extrabold text-3xl'>Gallary</h1>
          <Swiper
-          modules={[Navigation, Pagination, Scrollbar]}
+          modules={[Navigation, Pagination, Scrollbar,EffectCoverflow]}
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          loop={true}
       spaceBetween={50}
       slidesPerView={2}
+      coverflowEffect={{
+        rotate:0,
+        stretch:0,
+        depth:100,
+        modifier:2.5,
+
+      }}
       navigation
         pagination={{ clickable: true }}
        
         scrollbar={{ draggable: true }}
+   
     >
        
   
