@@ -9,7 +9,7 @@ import {EffectCoverflow, Navigation, Pagination, Scrollbar } from "swiper";
 const Gallary = () => {
     return (
         <div className='space-y-10 mb-10 p-10'>
-            <h1 className='text-center font-extrabold text-3xl'>Gallary</h1>
+            <h1 className='text-center font-extrabold text-5xl'>Gallary</h1>
          <Swiper
           modules={[Navigation, Pagination, Scrollbar,EffectCoverflow]}
           effect={'coverflow'}

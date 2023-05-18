@@ -18,11 +18,12 @@ const Details = () => {
              <div>
                <h1 className="text-5xl font-bold">{toyName}</h1>
                <p className="py-6">{description}</p>
-               <div className="btn-group">
-     <p className="btn ">Seller Name: {sellerName}</p>
-     <p className="btn btn-outline"> Price:${price}</p>
-     <p className="btn btn-outline">Quantity:{quantity}</p>
-   </div>
+   
+   <ul className="menu menu-horizontal bg-base-300 rounded-box">
+  <li> <p >Seller Name: {sellerName}</p></li>
+  <li><p > Price:${price}</p></li>
+  <li>  <p>Quantity:{quantity}</p></li>
+</ul>
   <div  className="flex  items-center mt-5">
   <Rating style={{ maxWidth: 150 }} value={Math.round(rating)} onChange={rating} readOnly />
            <span className='ml-3'>{rating}</span>   </div> 
