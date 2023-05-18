@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ToysTable from "./ToysTable";
 
 
 const AllToys = () => {
@@ -13,9 +14,26 @@ const AllToys = () => {
     },[])
     console.log(toys);
     return (
-        <div>
-            <h1>All toys</h1>
-        </div>
+        <div className="overflow-x-auto mt-10 mb-10">
+        <table className="table table-compact w-full">
+          <thead className="text-center">
+            <tr>
+              <th></th> 
+              <th>Seller</th> 
+              <th>Toy Name</th> 
+              <th>Sub Category</th> 
+              <th>Price</th> 
+              <th>Available Quantity</th> 
+              <th>Details</th>
+            </tr>
+          </thead> 
+          <tbody>
+        {
+            toys.map((toy,i)=><ToysTable key={toy._id} toy={toy} i={i}></ToysTable>)
+        }
+         </tbody>
+        </table>
+      </div>
     );
 };
 
