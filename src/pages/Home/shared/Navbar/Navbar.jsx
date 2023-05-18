@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from '../../../../assets/logo3.png'
 import './Navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
   const navItems = (
     <>
       <li>
@@ -10,16 +13,23 @@ const Navbar = () => {
       <li>
         <Link className=" font-bold">All Toys</Link>
       </li>
-      <li>
+    {user&& <>  <li>
         {" "}
         <Link className=" font-bold">My Toys</Link>
       </li>
       <li>
         <Link className=" font-bold">Add Toys</Link>
-        <Link className=" font-bold">Blogs</Link>
-      </li>
+      </li> </>}
+        <li><Link className=" font-bold">Blogs</Link></li>
     </>
   );
+  const handleLogOut = () => {
+    logout()
+      .then()
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="navbar bg-base-200 h-28">
       <div className="navbar-start">
@@ -61,11 +71,12 @@ const Navbar = () => {
     
       <div className="navbar-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-5">
-          <div className="w-50 rounded-full">
-            <img src="https://i.ibb.co/Btgytwv/favicon.png" />
-          </div>
+         {user&& <div className="w-50 rounded-full">
+            <img src={user.photoURL} />
+          </div>}
         </label>
-        <Link to="/login" className="btn">Login</Link>
+        {user? <button onClick={handleLogOut} className="btn">LogOut</button>
+         : <Link to="/login" className="btn">Login</Link>}
       </div>
     </div>
   );

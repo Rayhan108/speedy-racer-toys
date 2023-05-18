@@ -67,6 +67,14 @@ const Login = () => {
                 <input className="btn btn-primary" type="submit" value="Login" />
               </div>
             </form>
+           
+      <p className="text-primary">
+        {success}
+        </p>
+      <br />
+      <p className="text-danger ">
+        {error}
+        </p>
             <p > <span className="font-semibold"> Did not have an Account?</span>  <Link className="text-orange-400 font-bold" to="/register">Register</Link></p>
             </div>
             <div className="text-center">
@@ -80,14 +88,7 @@ const Login = () => {
           <FaGoogle className="text-blue-700 text-2xl mr-5"/> Sign in with Google
          </button>
       </div>
-      <br />
-      <p className="text-primary">
-        {success}
-        </p>
-      <br />
-      <p className="text-danger ">
-        {error}
-        </p>
+    
           </div>
         </div>
       </div>
