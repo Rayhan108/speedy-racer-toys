@@ -1,3 +1,4 @@
+import { Rating } from "@smastrom/react-rating";
 import { Link } from "react-router-dom";
 
 
@@ -11,8 +12,10 @@ const ToysCard = ({toy}) => {
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">Toys Name: {toyName}</h2>
-          <p>Toys Price:${price}</p>
-          <p>Ratings:{rating}</p>
+          <p className="font-semibold">Toys Price:${price}</p>
+          <div  className="flex  items-center ">
+  <Rating style={{ maxWidth: 100 }} value={Math.round(rating)} onChange={rating} readOnly />
+           <span className='ml-3'>{rating}</span>   </div> 
           <div className="card-actions">
           <Link to={`/${_id}`}>  <button className="btn btn-primary">View Details</button></Link>
           </div>
