@@ -2,8 +2,21 @@ import { useForm } from "react-hook-form";
 
 const AddToy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
 
+        fetch("http://localhost:5000/post-toys", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+            });
+          console.log(data);
+    }
+
+     
     return (
         
 
