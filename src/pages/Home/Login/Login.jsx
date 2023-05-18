@@ -2,13 +2,15 @@ import { Link } from "react-router-dom";
 import {FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login,googleLogin,setUser } = useContext(AuthContext);
     const [show, setShow] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
-
+    const provider = new GoogleAuthProvider();
+    // login with email & pass
     const handleLogin = (event) => {
         event.preventDefault();
         setError("");
@@ -33,7 +35,22 @@ const Login = () => {
           });
       };
     
-
+// login with google
+const handleGoogleLogin = () => {
+    setError("");
+    setSuccess("");
+    googleLogin(provider)
+      .then((result) => {
+        const user = result.user;
+        
+        setUser(user);
+        // console.log(user);
+        setSuccess("Login Succesfull");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
     return (
         <div className="mt-10 mb-10">
@@ -82,7 +99,7 @@ const Login = () => {
           </div>
       <div className="mb-5 mx-auto mt-5">
       <button
-           
+           onClick={handleGoogleLogin}
            className=" px-6  py-3 btn btn-outline btn-primary rounded-md"
          >
           <FaGoogle className="text-blue-700 text-2xl mr-5"/> Sign in with Google
