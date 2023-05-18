@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const AddToy = () => {
+    // eslint-disable-next-line no-unused-vars
+    const {user}=useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
 
@@ -10,10 +16,18 @@ const AddToy = () => {
             body: JSON.stringify(data),
           })
             .then((res) => res.json())
-            .then((result) => {
-              console.log(result);
-            });
-          console.log(data);
+            .then((data) => {
+                if(data.insertedId){
+                    Swal.fire({
+              title: 'success!',
+              text: 'Toys Added',
+              icon: 'success',
+              confirmButtonText: 'Cool'
+            })
+              
+        
+            }});
+        //   console.log(data);
     }
 
      
@@ -33,27 +47,27 @@ const AddToy = () => {
           <label className="label">
             <span className="label-text">Photo URL</span>
           </label>
-          <input type="url" placeholder="Photo URL"  {...register("photo-url", { required: true })} className="input input-bordered" />
+          <input type="url" placeholder="Photo URL"  {...register("photoUrl", { required: true })} className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Toy Name</span>
           </label>
-          <input type="text" placeholder="Toy Name"  {...register("toy-name", { required: true })} className="input input-bordered" />
+          <input type="text" placeholder="Toy Name"  {...register("toyName", { required: true })} className="input input-bordered" />
           
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Seller Name</span>
           </label>
-          <input type="text" placeholder="Seller Name"  {...register("seller-name", { required: true })} className="input input-bordered" />
+          <input type="text" placeholder="Seller Name"  {...register("sellerName", { required: true })} className="input input-bordered" />
           
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Seller Email</span>
           </label>
-          <input type="text" placeholder="Seller Email"  {...register("seller-email", { required: true })} className="input input-bordered" />
+          <input type="text" placeholder="Seller Email"  {...register("sellerEmail", { required: true })} className="input input-bordered" />
           
         </div>
         <div className="form-control">

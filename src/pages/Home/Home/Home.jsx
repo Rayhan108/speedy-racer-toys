@@ -1,34 +1,59 @@
 
+import { useEffect, useState } from "react";
 import Banner from "../Banner/Banner";
 import Gallary from "../Gallary/GAllary";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import ToysCard from "./ToysCard";
 
 const Home = () => {
+    const [toys,setToys]=useState([])
+    const [activeTab, setActiveTab] = useState("");
+    useEffect(()=>{
+fetch(`http://localhost:5000/toys/${activeTab}`)
+.then(res=>res.json())
+.then(data=>setToys(data))
+    },[activeTab])
+    // console.log(toys);
+
+    const handleTabClick = (tabName) => {
+        setActiveTab(tabName);
+      };
+
     return (
         <div>
             <Banner></Banner>
             <Gallary></Gallary>
             <div className="flex font-extrabold items-center justify-center mb-10">
             <Tabs>
-    <TabList>
-      <Tab>Bike</Tab>
-      <Tab>Sports Car</Tab>
-      <Tab>Mini Train</Tab>
+    <TabList className="font-extrabold text-3xl">
+      <Tab 
+              onClick={() => handleTabClick("bike")}
+             
+            >Bike</Tab>
+      <Tab  onClick={() => handleTabClick("sports-car")}
+             >Sports Car</Tab>
+      <Tab  onClick={() => handleTabClick("mini-train")}
+             >Mini Train</Tab>
     </TabList>
 
     <TabPanel>
-      <h2>Any content 1</h2>
+     {activeTab&& <h2 className="text-center text-2xl font-extrabold mt-10 text-cyan-800">Bike Toys </h2>}
     </TabPanel>
     <TabPanel>
-      <h2>Any content 2</h2>
+   {activeTab &&   <h2 className="text-center text-2xl font-extrabold mt-10 text-cyan-800">Sports Car Toys</h2>}
     </TabPanel>
     <TabPanel>
-      <h2>Any content 3</h2>
+  {activeTab &&    <h2 className="text-center text-2xl font-extrabold mt-10 text-cyan-800">Mini Train Toys</h2>}
     </TabPanel>
   </Tabs>
             </div>
- 
+
+ <div className="grid grid-cols-3 gap-5 mb-10">
+    {
+       toys.map(toy=><ToysCard key={toy._id} toy={toy}></ToysCard>) 
+    }
+ </div>
         </div>
     );
 };
