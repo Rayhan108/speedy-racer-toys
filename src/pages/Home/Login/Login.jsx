@@ -17,13 +17,13 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="text" placeholder="email" name="email" className="input input-bordered" />
+                <input type="text" placeholder="email" name="email" className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type={show ? "text":"password"} placeholder="password" name="password" className="input input-bordered" />
+                <input type={show ? "text":"password"} placeholder="password" name="password" className="input input-bordered" required />
           
               </div>
               <p className="mt-3" onClick={() => setShow(!show)}>
@@ -36,7 +36,7 @@ const Login = () => {
                 <input className="btn btn-primary" type="submit" value="Login" />
               </div>
             </form>
-            <p > <span className="font-semibold"> Alredy have an Account?</span>  <Link className="text-orange-400 font-bold" to="/register">Register</Link></p>
+            <p > <span className="font-semibold"> Did not have an Account?</span>  <Link className="text-orange-400 font-bold" to="/register">Register</Link></p>
             </div>
             <div className="text-center">
             <span className="text-gray-400">or</span>
