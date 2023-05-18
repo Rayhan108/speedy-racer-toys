@@ -8,7 +8,7 @@ const PrivetRoute = ({children}) => {
     const {loader,user} =useContext(AuthContext)
     const location = useLocation();
    
-    if(!user){
+    if(user?.email ==''){
         Swal.fire({
             title: 'error!',
             text: 'You have to log in first to go view details',
