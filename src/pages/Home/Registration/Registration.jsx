@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Registration = () => {
-    const {createUser} =useContext(AuthContext)
+    const {createUser,updateUserData} =useContext(AuthContext)
         const [error, setError] = useState("")
         const [success, setSuccess] = useState("")
 
@@ -12,18 +12,18 @@ const Registration = () => {
             setError('')
             setSuccess('')
             const form = event.target;
-            // const name =form.name.value;
-            // const photo =form.photo.value;
+            const name =form.name.value;
+            const photo =form.photo.value;
             const email =form.email.value;
              const password = form.password.value;
     
             
             createUser(email,password)
             .then(result=>{
+                // eslint-disable-next-line no-unused-vars
                 const loggedUser = result.user;
-                console.log(loggedUser);
-             
-              
+                // console.log(loggedUser);
+                updateUserData(result.user,name,photo)
                 form.reset()
                 setSuccess('Account has been created successfully')
             })
