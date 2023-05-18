@@ -1,9 +1,40 @@
 import { Link } from "react-router-dom";
 import {FaGoogle } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
     const [show, setShow] = useState(false);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        setError("");
+        setSuccess("");
+        // console.log(event);
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        login(email, password)
+          .then((result) => {
+            // eslint-disable-next-line no-unused-vars
+            const loggedUser = result.user;
+            // console.log(loggedUser);
+         
+            form.reset();
+    
+            setSuccess(" Login successfull");
+          })
+          .catch((error) => {
+            // console.log(error.message);
+            setError(error.message);
+          });
+      };
+    
+
+
     return (
         <div className="mt-10 mb-10">
         <div className="hero-content">
@@ -12,7 +43,7 @@ const Login = () => {
          
          <div className="card-body">
             <h1 className="text-3xl font-bold text-center mb-5">Login</h1>
-            <form >
+            <form onSubmit={handleLogin}>
             <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -49,7 +80,14 @@ const Login = () => {
           <FaGoogle className="text-blue-700 text-2xl mr-5"/> Sign in with Google
          </button>
       </div>
-        
+      <br />
+      <p className="text-primary">
+        {success}
+        </p>
+      <br />
+      <p className="text-danger ">
+        {error}
+        </p>
           </div>
         </div>
       </div>
