@@ -1,12 +1,15 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Registration = () => {
     const {createUser,updateUserData} =useContext(AuthContext)
         const [error, setError] = useState("")
         const [success, setSuccess] = useState("")
-
+        const location =useLocation()
+        const navigate = useNavigate()
+        const from = location.state?.from?.pathname || "/";
         const handleRegister =(event)=>{
             event.preventDefault()
             setError('')
@@ -23,9 +26,16 @@ const Registration = () => {
                 // eslint-disable-next-line no-unused-vars
                 const loggedUser = result.user;
                 // console.log(loggedUser);
+               
                 updateUserData(result.user,name,photo)
+                navigate(from, { replace: true })
                 form.reset()
-                setSuccess('Account has been created successfully')
+                Swal.fire({
+                    title: 'success!',
+                    text: 'Registration Succesfull',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
             })
             .catch(error=>{
                 setError(error.message)
@@ -76,11 +86,11 @@ const Registration = () => {
             </form>
             <p > <span className="font-semibold"> Alredy have an Account?</span>  <Link className="text-orange-400 font-bold" to="/login">Login</Link></p>
             <br />
-      <p className="text-primary">
+      <p className="text-green-600">
         {success}
         </p>
       <br />
-      <p className="text-danger ">
+      <p className="text-red-700">
         {error}
         </p>
             </div>

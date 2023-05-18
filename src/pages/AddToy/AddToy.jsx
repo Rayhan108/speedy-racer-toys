@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2'
-import { AuthContext } from "../../../Provider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddToy = () => {
     // eslint-disable-next-line no-unused-vars

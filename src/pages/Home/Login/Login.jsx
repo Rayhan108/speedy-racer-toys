@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
-
+import Swal from 'sweetalert2'
 const Login = () => {
     const { login,googleLogin,setUser } = useContext(AuthContext);
     const [show, setShow] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const location =useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
     const provider = new GoogleAuthProvider();
     // login with email & pass
     const handleLogin = (event) => {
@@ -24,10 +27,14 @@ const Login = () => {
             // eslint-disable-next-line no-unused-vars
             const loggedUser = result.user;
             // console.log(loggedUser);
-         
+            navigate(from)
             form.reset();
-    
-            setSuccess(" Login successfull");
+            Swal.fire({
+                title: 'success!',
+                text: 'Login Succesfull',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
           })
           .catch((error) => {
             // console.log(error.message);
@@ -39,13 +46,19 @@ const Login = () => {
 const handleGoogleLogin = () => {
     setError("");
     setSuccess("");
+ 
     googleLogin(provider)
       .then((result) => {
         const user = result.user;
-        
+        navigate(from)
         setUser(user);
         // console.log(user);
-        setSuccess("Login Succesfull");
+        Swal.fire({
+            title: 'success!',
+            text: 'Login Succesfull',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
       })
       .catch((error) => {
         setError(error.message);
@@ -85,11 +98,11 @@ const handleGoogleLogin = () => {
               </div>
             </form>
            
-      <p className="text-primary">
+      <p className="text-green-700">
         {success}
         </p>
       <br />
-      <p className="text-danger ">
+      <p className="text-red-950 ">
         {error}
         </p>
             <p > <span className="font-semibold"> Did not have an Account?</span>  <Link className="text-orange-400 font-bold" to="/register">Register</Link></p>

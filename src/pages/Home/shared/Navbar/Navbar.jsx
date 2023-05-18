@@ -11,16 +11,16 @@ const Navbar = () => {
         <Link className=" font-bold" to="/">Home</Link>
       </li>
       <li>
-        <Link  className=" font-bold">All Toys</Link>
+        <Link to="/allToys"  className=" font-bold">All Toys</Link>
       </li>
     {user&& <>  <li>
         {" "}
-        <Link className=" font-bold">My Toys</Link>
+        <Link to="/myToys" className=" font-bold">My Toys</Link>
       </li>
       <li>
         <Link to="/addToy" className=" font-bold">Add Toys</Link>
       </li> </>}
-        <li><Link className=" font-bold">Blogs</Link></li>
+        <li><Link to="/blog" className=" font-bold">Blogs</Link></li>
     </>
   );
   const handleLogOut = () => {
@@ -71,8 +71,8 @@ const Navbar = () => {
     
       <div className="navbar-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-5">
-         {user&& <div className="w-50 rounded-full">
-            <img src={user.photoURL} />
+         {user&& <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+            <img className="w-50 rounded-full " src={user?.photoURL} />
           </div>}
         </label>
         {user? <button onClick={handleLogOut} className="btn">LogOut</button>
