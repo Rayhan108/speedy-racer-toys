@@ -10,7 +10,7 @@ const AddToy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     
     const onSubmit = data => {
-        fetch("http://localhost:5000/post-toys", {
+        fetch("https://assignment11-server-mocha.vercel.app/post-toys", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

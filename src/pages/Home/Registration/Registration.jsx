@@ -34,7 +34,7 @@ const Registration = () => {
                     title: 'success!',
                     text: 'Registration Succesfull',
                     icon: 'success',
-                    confirmButtonText: 'Cool'
+                    confirmButtonText: 'OK'
                   })
             })
             .catch(error=>{

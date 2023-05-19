@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import ToysTable from "./ToysTable";
 
 const AllToys = () => {
-  const [searchText,setSearchText]=useState("")
+  const [searchText, setSearchText] = useState("");
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://assignment11-server-mocha.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -15,7 +15,7 @@ const AllToys = () => {
   // console.log(toys);
   // search function
   const handleSearch = () => {
-    fetch(`http://localhost:5000/searchbyToy/${searchText}`)
+    fetch(`https://assignment11-server-mocha.vercel.app/searchbyToy/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -30,12 +30,14 @@ const AllToys = () => {
       <div className="flex ml-5 justify-center mb-5 mt-5">
         <input
           type="text"
-          onChange={(e)=>setSearchText(e.target.value)}
+          onChange={(e) => setSearchText(e.target.value)}
           placeholder="Search"
           className="input input-bordered"
           style={{ width: "400px" }}
         />
-        <button onClick={handleSearch} className="btn  ml-3">Search</button>
+        <button onClick={handleSearch} className="btn  ml-3">
+          Search
+        </button>
       </div>
       <table className="table table-compact w-full">
         <thead className="text-center">

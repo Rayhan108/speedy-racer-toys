@@ -57,7 +57,7 @@ const handleGoogleLogin = () => {
             title: 'success!',
             text: 'Login Succesfull',
             icon: 'success',
-            confirmButtonText: 'Cool'
+            confirmButtonText: 'OK'
           })
       })
       .catch((error) => {

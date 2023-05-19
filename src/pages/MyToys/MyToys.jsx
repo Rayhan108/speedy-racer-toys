@@ -8,7 +8,7 @@ const MyToys = () => {
     const[toys,setToys]=useState([])
     const {user} =useContext(AuthContext)
 useEffect(()=>{
-    fetch(`http://localhost:5000/allToys/${user?.email}`)
+    fetch(`https://assignment11-server-mocha.vercel.app/allToys/${user?.email}`)
     .then(res=>res.json())
     .then(data=>{
         setToys(data)
@@ -20,7 +20,7 @@ const handleDelete = (id) => {
  
     const proceed = confirm("Are you sure ,you want to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/post-toys/${id}`, {
+      fetch(`https://assignment11-server-mocha.vercel.app/post-toys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

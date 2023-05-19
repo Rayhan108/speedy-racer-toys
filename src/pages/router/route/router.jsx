@@ -29,7 +29,7 @@ import ErrorPage from "../../ErrorPage/ErrorPage";
         {
             path:'/home/:id',
             element:<PrivetRoute><Details></Details></PrivetRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/toys/home/${params.id}`)
+            loader:({params})=>fetch(`https://assignment11-server-mocha.vercel.app/toys/home/${params.id}`)
         },
         {
             path:'/login',
@@ -58,7 +58,7 @@ import ErrorPage from "../../ErrorPage/ErrorPage";
         {
           path:'/update/:id',
           element:<UpdateToy></UpdateToy>,
-          loader:({params})=>fetch(`http://localhost:5000/toys/home/${params.id}`)
+          loader:({params})=>fetch(`https://assignment11-server-mocha.vercel.app/toys/home/${params.id}`)
         },
        
       ]

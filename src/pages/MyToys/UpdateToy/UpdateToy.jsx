@@ -12,7 +12,7 @@ const UpdateToy = () => {
       
       const onSubmit = data => {
         console.log(data);
-        fetch(`http://localhost:5000/post-toys/${_id}`, {
+        fetch(`https://assignment11-server-mocha.vercel.app/post-toys/${_id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
