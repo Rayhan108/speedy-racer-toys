@@ -102,7 +102,7 @@ const handleGoogleLogin = () => {
         {success}
         </p>
       <br />
-      <p className="text-red-950 ">
+      <p className="text-red-700 ">
         {error}
         </p>
             <p > <span className="font-semibold"> Did not have an Account?</span>  <Link className="text-orange-400 font-bold" to="/register">Register</Link></p>

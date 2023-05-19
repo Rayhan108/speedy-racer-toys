@@ -17,7 +17,7 @@ const PrivetRoute = ({children}) => {
           }else{
             Swal.fire({
                 title: 'error!',
-                text: 'You have to log in first to go view details',
+                text: 'You have to log in first to go this page',
                 icon: 'error',
                 confirmButtonText: 'Cool'
               })

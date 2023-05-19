@@ -13,7 +13,7 @@ const ToysTable = ({toy,i}) => {
         <td className="font-semibold text-center">{category}</td> 
         <td className="font-semibold text-center">${price}</td> 
         <td className="font-semibold text-center">{quantity}</td> 
-        <td className="text-center"><Link to={`/${_id}`}><button className="btn">View Details</button></Link></td>
+        <td className="text-center"><Link to={`/${_id}`}><button className="btn btn-outline">View Details</button></Link></td>
       </tr>
      </>
     );
