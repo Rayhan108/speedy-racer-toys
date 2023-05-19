@@ -70,9 +70,9 @@ const Navbar = () => {
       </div>
     
       <div className="navbar-end">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-5">
-         {user&& <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-            <img className="w-50 rounded-full " src={user?.photoURL} />
+      <label className=" mr-5">
+         {user&& <div className="tooltip" data-tip={user?.displayName}>
+            <img style={{width:"50px"}} className="w-50 rounded-full circle" src={user?.photoURL} />
           </div>}
         </label>
         {user? <button onClick={handleLogOut} className="btn">LogOut</button>
