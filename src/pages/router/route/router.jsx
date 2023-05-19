@@ -13,19 +13,21 @@ import AllToys from "../../AllToys/AllToys";
 import MyToys from "../../MyToys/MyToys";
 import Blog from "../../Blog/Blog";
 import UpdateToy from "../../MyToys/UpdateToy/UpdateToy";
+import ErrorPage from "../../ErrorPage/ErrorPage";
 
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
             element:<Home></Home>
         },
         {
-            path:'/:id',
+            path:'details/:id',
             element:<PrivetRoute><Details></Details></PrivetRoute>,
             loader:({params})=>fetch(`http://localhost:5000/toys/home/${params.id}`)
         },
