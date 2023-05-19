@@ -27,7 +27,7 @@ import ErrorPage from "../../ErrorPage/ErrorPage";
             element:<Home></Home>
         },
         {
-            path:'details/:id',
+            path:'/home/:id',
             element:<PrivetRoute><Details></Details></PrivetRoute>,
             loader:({params})=>fetch(`http://localhost:5000/toys/home/${params.id}`)
         },

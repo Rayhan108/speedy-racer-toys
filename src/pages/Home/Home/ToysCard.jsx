@@ -17,7 +17,7 @@ const ToysCard = ({toy}) => {
   <Rating style={{ maxWidth: 100 }} value={Math.round(rating)} onChange={rating} readOnly />
            <span className='ml-3'>{rating}</span>   </div> 
           <div className="card-actions">
-          <Link to={`/${_id}`}>  <button className="btn btn-primary">View Details</button></Link>
+          <Link to={`/home/${_id}`}>  <button className="btn btn-primary">View Details</button></Link>
           </div>
         </div>
       </div>
