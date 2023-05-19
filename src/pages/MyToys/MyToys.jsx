@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MyToysTable from "./MyToysTable";
+import Swal from "sweetalert2";
 
 
 const MyToys = () => {
@@ -15,6 +16,29 @@ useEffect(()=>{
     })
 },[user])
 
+const handleDelete = (id) => {
+ 
+    const proceed = confirm("Are you sure ,you want to delete");
+    if (proceed) {
+      fetch(`http://localhost:5000/post-toys/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            Swal.fire({
+                title: 'success!',
+                text: 'Delete Succesfull',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+            const remaining = toys.filter((booking) => booking._id !== id);
+            setToys(remaining);
+          }
+        });
+    }
+  };
     return (
         <div>
             <h1 className="text-3xl font-extrabold text-center text-cyan-800 mt-5 mb-5">Toys You Added</h1>
@@ -34,7 +58,7 @@ useEffect(()=>{
     </thead>
     <tbody>
    {
-    toys.map((toy,i)=><MyToysTable key={toy._id} toy={toy} i={i}></MyToysTable>)
+    toys.map((toy,i)=><MyToysTable key={toy._id} toy={toy} i={i} handleDelete={handleDelete}></MyToysTable>)
    }
    
    

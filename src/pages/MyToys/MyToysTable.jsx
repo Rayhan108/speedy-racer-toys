@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 
 
-const MyToysTable = ({toy,i}) => {
+const MyToysTable = ({toy,i,handleDelete}) => {
     console.log(toy);
     const {toyName,sellerName,category,quantity,price,_id,photoUrl,sellerEmail}=toy;
+
+    
+
+
+
     return (
      
                <tr className="text-center">
@@ -39,7 +44,7 @@ const MyToysTable = ({toy,i}) => {
          <Link to={`/update/${_id}`}> <button  className="btn  btn-sm">Update</button></Link>
         </th>
         <th>
-       <Link to={`/delete/${_id}`}>   <button  className="btn  btn-sm">Delete</button></Link>
+         <button onClick={()=>handleDelete(_id)}  className="btn  btn-sm">Delete</button>
         </th>
       </tr>
        
