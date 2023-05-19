@@ -1,32 +1,37 @@
+
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
-// ES6 Modules or TypeScript
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+
+
 
 const UpdateToy = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
     const singleToy =useLoaderData()
-    console.log(singleToy);
-    const onSubmit = data => {
-        fetch("", {
-            method: "PETCH",
+    const {_id,photoUrl,toyName,price,rating,quantity,sellerName,sellerEmail,category,description}=singleToy;
+      const { register, handleSubmit, formState: { errors } } = useForm();
+      
+      const onSubmit = data => {
+        console.log(data);
+        fetch(`http://localhost:5000/post-toys/${_id}`, {
+            method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
           })
             .then((res) => res.json())
             .then((data) => {
             console.log(data);
-            //     if(data.insertedId){
-            //         Swal.fire({
-            //   title: 'success!',
-            //   text: 'Update Succesfull',
-            //   icon: 'success',
-            //   confirmButtonText: 'Cool'
-            // })}
-              
+                if(data.modifiedCount>0){
+                    Swal.fire({
+              title: 'success!',
+              text: 'Update Succesfull',
+              icon: 'success',
+              confirmButtonText: 'Cool'
+            })}
+             
         });
-        //   console.log(data);
-    }
+
+            console.log(data);
+      }
     return (
         <div>
         <div className=" min-h-screen bg-base-200">
@@ -41,34 +46,34 @@ const UpdateToy = () => {
                   <label className="label">
                     <span className="label-text">Photo URL</span>
                   </label>
-                  <input type="url" placeholder="Photo URL"  {...register("photoUrl", { required: true })} className="input input-bordered" />
+                  <input type="url" placeholder="Photo URL" defaultValue={photoUrl} {...register("photoUrl", { required: true })} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Toy Name</span>
                   </label>
-                  <input type="text" placeholder="Toy Name"  {...register("toyName", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Toy Name" defaultValue={toyName}  {...register("toyName", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Seller Name</span>
                   </label>
-                  <input type="text" placeholder="Seller Name"   {...register("sellerName", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Seller Name" defaultValue={sellerName} {...register("sellerName", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Seller Email</span>
                   </label>
-                  <input type="text" placeholder="Seller Email"   {...register("sellerEmail", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Seller Email" defaultValue={sellerEmail} {...register("sellerEmail", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Sub Catagory</span>
                   </label>
-                  <select className="input input-bordered" {...register("category")}>
+                  <select className="input input-bordered" defaultValue={category} {...register("category")}>
                     <option value="bike">Bike</option>
                     <option value="sports-car">sports car</option>
                     <option value="mini-train">Mini Train</option>
@@ -79,29 +84,29 @@ const UpdateToy = () => {
                   <label className="label">
                     <span className="label-text">Price</span>
                   </label>
-                  <input type="text" placeholder="Price"  {...register("price", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Price" defaultValue={price}  {...register("price", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Rating</span>
                   </label>
-                  <input type="text" placeholder="Rating"  {...register("rating", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Rating" defaultValue={rating}  {...register("rating", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Quantity</span>
                   </label>
-                  <input type="text" placeholder="Quantity"  {...register("quantity", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Quantity" defaultValue={quantity}  {...register("quantity", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Description</span>
                   </label>
-                 <textarea {...register("description", { required: true })}  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none  "></textarea>
-                  
+                 <textarea {...register("description", { required: true })} defaultValue={description}  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none  "></textarea>
+                  <input type="text" defaultValue={_id} className="hidden" />
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Update</button>
