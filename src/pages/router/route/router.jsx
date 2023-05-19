@@ -12,6 +12,8 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import AllToys from "../../AllToys/AllToys";
 import MyToys from "../../MyToys/MyToys";
 import Blog from "../../Blog/Blog";
+import UpdateToy from "../../MyToys/UpdateToy/UpdateToy";
+import Delete from "../../MyToys/Delete/Delete";
 
   const router = createBrowserRouter([
     {
@@ -50,6 +52,16 @@ import Blog from "../../Blog/Blog";
         {
             path:'/blog',
             element:<Blog></Blog>
+        },
+        {
+          path:'/update/:id',
+          element:<UpdateToy></UpdateToy>,
+          loader:({params})=>fetch(`http://localhost:5000/toys/home/${params.id}`)
+        },
+        {
+          path:'/delete/:id',
+          element:<Delete></Delete>,
+          loader:({params})=>fetch(`http://localhost:5000/toys/home/${params.id}`)
         },
       ]
     },

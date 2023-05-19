@@ -61,7 +61,7 @@ const AddToy = () => {
           <label className="label">
             <span className="label-text">Seller Name</span>
           </label>
-          <input type="text" placeholder="Seller Name"  {...register("sellerName", { required: true })} className="input input-bordered" />
+          <input type="text" placeholder="Seller Name" defaultValue={user?.displayName} readOnly {...register("sellerName", { required: true })} className="input input-bordered" />
           
         </div>
         <div className="form-control">

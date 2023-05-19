@@ -12,7 +12,8 @@ const AllToys = () => {
         setToys(data);
       });
   }, []);
-  console.log(toys);
+  // console.log(toys);
+  // search function
   const handleSearch = () => {
     fetch(`http://localhost:5000/searchbyToy/${searchText}`)
       .then((res) => res.json())

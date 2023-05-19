@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const MyToysTable = ({toy,i}) => {
@@ -35,10 +36,10 @@ const MyToysTable = ({toy,i}) => {
         </td>
         
         <th>
-          <button className="btn  btn-sm">Update</button>
+         <Link to={`/update/${_id}`}> <button  className="btn  btn-sm">Update</button></Link>
         </th>
         <th>
-          <button className="btn  btn-sm">Delete</button>
+       <Link to={`/delete/${_id}`}>   <button  className="btn  btn-sm">Delete</button></Link>
         </th>
       </tr>
        
