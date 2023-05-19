@@ -46,34 +46,34 @@ const UpdateToy = () => {
                   <label className="label">
                     <span className="label-text">Photo URL</span>
                   </label>
-                  <input type="url" placeholder="Photo URL" defaultValue={photoUrl} {...register("photoUrl", { required: true })} className="input input-bordered" />
+                  <input type="url" placeholder="Photo URL" readOnly defaultValue={photoUrl} {...register("photoUrl", { required: true })} className="input input-bordered" />
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Toy Name</span>
                   </label>
-                  <input type="text" placeholder="Toy Name" defaultValue={toyName}  {...register("toyName", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Toy Name" readOnly defaultValue={toyName}  {...register("toyName", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Seller Name</span>
                   </label>
-                  <input type="text" placeholder="Seller Name" defaultValue={sellerName} {...register("sellerName", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Seller Name" defaultValue={sellerName} {...register("sellerName", { required: true })} readOnly className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Seller Email</span>
                   </label>
-                  <input type="text" placeholder="Seller Email" defaultValue={sellerEmail} {...register("sellerEmail", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Seller Email" readOnly defaultValue={sellerEmail} {...register("sellerEmail", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Sub Catagory</span>
                   </label>
-                  <select className="input input-bordered" defaultValue={category} {...register("category")}>
+                  <select className="input input-bordered" readOnly defaultValue={category} {...register("category")}>
                     <option value="bike">Bike</option>
                     <option value="sports-car">sports car</option>
                     <option value="mini-train">Mini Train</option>
@@ -91,7 +91,7 @@ const UpdateToy = () => {
                   <label className="label">
                     <span className="label-text">Rating</span>
                   </label>
-                  <input type="text" placeholder="Rating" defaultValue={rating}  {...register("rating", { required: true })} className="input input-bordered" />
+                  <input type="text" placeholder="Rating" readOnly defaultValue={rating}  {...register("rating", { required: true })} className="input input-bordered" />
                   
                 </div>
                 <div className="form-control">
