@@ -25,7 +25,7 @@ import Blog from "../../Blog/Blog";
         {
             path:'/:id',
             element:<PrivetRoute><Details></Details></PrivetRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/home/${params.id}`)
+            loader:({params})=>fetch(`http://localhost:5000/toys/home/${params.id}`)
         },
         {
             path:'/login',
