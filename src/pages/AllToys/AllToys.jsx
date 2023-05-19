@@ -15,6 +15,7 @@ const AllToys = () => {
     console.log(toys);
     return (
         <div className="overflow-x-auto mt-10 mb-10">
+          <h1 className="text-center text-3xl font-extrabold text-cyan-800 mb-10 mt-10">All Toys</h1>
         <table className="table table-compact w-full">
           <thead className="text-center">
             <tr>

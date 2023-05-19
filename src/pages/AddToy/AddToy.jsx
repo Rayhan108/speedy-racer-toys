@@ -8,8 +8,8 @@ const AddToy = () => {
     // eslint-disable-next-line no-unused-vars
     const {user}=useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
+    
     const onSubmit = data => {
-
         fetch("http://localhost:5000/post-toys", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -17,6 +17,7 @@ const AddToy = () => {
           })
             .then((res) => res.json())
             .then((data) => {
+            
                 if(data.insertedId){
                     Swal.fire({
               title: 'success!',

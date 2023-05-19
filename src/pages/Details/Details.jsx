@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
     const toy = useLoaderData()
-    const {photoUrl,toyName,description,price,rating,quantity,sellerName,
+    const {photoUrl,toyName,description,price,rating,quantity,sellerName,sellerEmail
     }=toy || {}
     console.log(toy);
     return (
@@ -18,11 +18,16 @@ const Details = () => {
              <div>
                <h1 className="text-5xl font-bold">{toyName}</h1>
                <p className="py-6">{description}</p>
-   
+<div className='mb-3'>   
    <ul className="menu menu-horizontal bg-base-300 rounded-box">
-  <li> <p >Seller Name: {sellerName}</p></li>
-  <li><p > Price:${price}</p></li>
-  <li>  <p>Quantity:{quantity}</p></li>
+  <li> <p className='font-semibold' >Seller Name: {sellerName}</p></li>
+  <li> <p className='font-semibold' >Seller Email: {sellerEmail}</p></li>
+
+</ul>
+</div>
+   <ul className="menu menu-horizontal bg-base-300 rounded-box">
+   <li><p className='font-semibold' > Price:${price}</p></li>
+  <li>  <p className='font-semibold'>Quantity:{quantity}</p></li>
 </ul>
   <div  className="flex  items-center mt-5">
   <Rating style={{ maxWidth: 150 }} value={Math.round(rating)} onChange={rating} readOnly />
