@@ -10,24 +10,25 @@ const MyToys = () => {
   useTitle("MyToys");
   const [toys, setToys] = useState([]);
   const { user } = useContext(AuthContext);
-const[sortedToys,setSortedToys]=useState([])
-  const [activeTab, setActiveTab] = useState("acending");
-  useEffect(() => {
-    fetch(`https://assignment11-server-mocha.vercel.app/sortby/${activeTab}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setSortedToys(data);
+    const [activeTab, setActiveTab] = useState("acending");
+// const[sortedToys,setSortedToys]=useState([])
+//   useEffect(() => {
+//     fetch(`https://assignment11-server-mocha.vercel.app/sortby/${activeTab}`)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setSortedToys(data);
 
-        console.log(data);
-      });
-  }, [activeTab]);
+//         // console.log(data);
+//       });
+//   }, [activeTab]);
 
+  // eslint-disable-next-line no-unused-vars
   const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
+    // setActiveTab(tabName);
   };
 
   useEffect(() => {
-    fetch(`https://assignment11-server-mocha.vercel.app/allToys/${user?.email}`)
+    fetch(`https://assignment11-server-mocha.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -52,7 +53,7 @@ const[sortedToys,setSortedToys]=useState([])
               confirmButtonText: "Cool",
             });
             const remaining = toys.filter((toy) => toy._id !== id);
-            setSortedToys(remaining);
+            setToys(remaining);
           }
         });
     }
@@ -101,7 +102,7 @@ const[sortedToys,setSortedToys]=useState([])
             </tr>
           </thead>
           <tbody>
-            {sortedToys.map((toy, i) => (
+            {toys.map((toy, i) => (
               <MyToysTable
                 key={toy._id}
                 toy={toy}
