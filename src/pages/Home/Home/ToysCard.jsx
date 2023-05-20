@@ -6,7 +6,7 @@ const ToysCard = ({toy}) => {
     // console.log(toy);
     const {photoUrl,toyName,rating,price,_id}=toy || {};
     return (
-        <div className="card w-96 bg-base-100 shadow-xl" 
+        <div className="card w-96 bg-base-100 shadow-xl overflow-x-hidden" 
         data-aos="slide-up"
          data-aos-duration="1000"
         >

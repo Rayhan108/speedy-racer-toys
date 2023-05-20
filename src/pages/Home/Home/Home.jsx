@@ -29,7 +29,7 @@ fetch(`https://assignment11-server-mocha.vercel.app/toys/${activeTab}`)
             <Banner></Banner>
             <Gallary></Gallary>
             <div className="flex font-extrabold items-center justify-center mb-10">
-  <div></div>
+ 
             <Tabs>
     <TabList className="font-extrabold text-3xl">
       <Tab 
@@ -54,7 +54,7 @@ fetch(`https://assignment11-server-mocha.vercel.app/toys/${activeTab}`)
   </Tabs>
             </div>
 
- <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-5 mb-10">
+ <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-5 mb-10 overflow-x-hidden">
     {
        toys.map(toy=><ToysCard key={toy._id} toy={toy}></ToysCard>) 
     }

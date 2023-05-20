@@ -8,7 +8,7 @@ import {EffectCoverflow, Navigation, Pagination, Scrollbar } from "swiper";
 
 const Gallary = () => {
     return (
-        <div className='space-y-10 mb-10 p-10'
+        <div className='space-y-10 mb-10 p-10 overflow-x-hidden'
         
         data-aos="fade-down"
         data-aos-offset="200"

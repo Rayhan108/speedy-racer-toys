@@ -1,11 +1,11 @@
 const Recomended = () => {
   return (
-    <div className="mt-10 mb-10 ">
+    <div className="mt-10 mb-10 overflow-x-hidden">
       <h1 className="text-center  text-5xl font-extrabold mt-10 mb-10">
         Recommended For You
       </h1>
-      <div className="grid lg:grid-cols-3 sm:grid-cols-1">
-        <div className="card card-compact w-96 bg-base-100 shadow-xl mt-5"
+      <div className="grid lg:grid-cols-3 sm:grid-cols-1 overflow-x-hidden">
+        <div className="card card-compact w-96 bg-base-100 shadow-xl mt-5 overflow-x-hidden"
         
         data-aos="fade-left"
         data-aos-duration="1000"
@@ -25,7 +25,7 @@ const Recomended = () => {
             <button className="btn btn-primary ">Buy Now</button>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl mt-5"
+        <div className="card card-compact w-96 bg-base-100 shadow-xl mt-5 overflow-x-hidden"
           data-aos="slide-up"
           data-aos-duration="1000"
         >
@@ -44,7 +44,7 @@ const Recomended = () => {
             <button className="btn btn-primary ">Buy Now</button>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl mt-5"
+        <div className="card card-compact w-96 bg-base-100 shadow-xl mt-5 overflow-x-hidden"
           data-aos="slide-down"
           data-aos-duration="1000"
         >
