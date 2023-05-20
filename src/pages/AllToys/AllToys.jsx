@@ -8,7 +8,7 @@ const AllToys = () => {
   const [searchText, setSearchText] = useState("");
   const [toys, setToys] = useState([]);
 
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("decending");
   useEffect(()=>{
 fetch(`https://assignment11-server-mocha.vercel.app/sortby/${activeTab}`)
 .then(res=>res.json())

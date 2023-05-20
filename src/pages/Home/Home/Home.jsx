@@ -6,6 +6,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ToysCard from "./ToysCard";
 import useTitle from "../../../hooks/useTitle";
+import Recomended from "./Recomended";
+import Upcoming from "./Upcoming";
 
 const Home = () => {
   useTitle('Home')
@@ -60,8 +62,8 @@ fetch(`https://assignment11-server-mocha.vercel.app/toys/${activeTab}`)
 
 
 
-
-
+<Recomended></Recomended>
+<Upcoming></Upcoming>
 
 
 
