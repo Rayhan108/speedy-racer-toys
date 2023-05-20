@@ -8,7 +8,18 @@ import {EffectCoverflow, Navigation, Pagination, Scrollbar } from "swiper";
 
 const Gallary = () => {
     return (
-        <div className='space-y-10 mb-10 p-10'>
+        <div className='space-y-10 mb-10 p-10'
+        
+        data-aos="fade-down"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="500"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+        
+        
+        >
             <h1 className='text-center font-extrabold text-5xl'>Gallary</h1>
          <Swiper
           modules={[Navigation, Pagination, Scrollbar,EffectCoverflow]}

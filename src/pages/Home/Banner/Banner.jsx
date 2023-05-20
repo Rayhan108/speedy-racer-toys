@@ -1,11 +1,12 @@
-
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+AOS.init();
 const Banner = () => {
     return (
         <div className="bg-gradient-to-r from-cyan-800 to-white-600 py-16 px-4 mb-10">
         <div>
-          <div className="flex flex-col lg:flex-row items-center justify-between">
-            <div className="lg:w-1/2">
+          <div className="flex flex-col lg:flex-row items-center justify-between" >
+            <div data-aos="flip-left" data-aos-duration="500" className="lg:w-1/2">
               <h1 className="text-4xl  font-extrabold text-white  md:text-6xl">
                 Welcome to Speedy Car Toys
               </h1>
