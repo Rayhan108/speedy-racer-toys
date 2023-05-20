@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const MyToysTable = ({toy,i,handleDelete}) => {
-    console.log(toy);
+    // console.log(toy);
     const {toyName,sellerName,category,quantity,price,_id,photoUrl,sellerEmail}=toy;
 
     
