@@ -1,6 +1,8 @@
 import { Link, useRouteError } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const ErrorPage = () => {
+  useTitle('ErrorPage')
     const error = useRouteError()
   return (
     <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100">

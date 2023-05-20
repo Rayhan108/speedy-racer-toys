@@ -4,7 +4,9 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import Swal from 'sweetalert2'
+import useTitle from "../../../hooks/useTitle";
 const Login = () => {
+  useTitle('Login')
     const { login,googleLogin,setUser } = useContext(AuthContext);
     const [show, setShow] = useState(false);
     const [error, setError] = useState("");

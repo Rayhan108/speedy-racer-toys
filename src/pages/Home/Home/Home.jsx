@@ -5,8 +5,10 @@ import Gallary from "../Gallary/GAllary";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ToysCard from "./ToysCard";
+import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
+  useTitle('Home')
     const [toys,setToys]=useState([])
     const [activeTab, setActiveTab] = useState("");
     useEffect(()=>{

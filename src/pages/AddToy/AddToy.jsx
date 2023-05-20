@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
+  useTitle('AddToy')
     // eslint-disable-next-line no-unused-vars
     const {user}=useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
