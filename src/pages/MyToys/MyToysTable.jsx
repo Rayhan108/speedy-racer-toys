@@ -24,7 +24,7 @@ const MyToysTable = ({toy,i,handleDelete}) => {
             <div>
               <div className="font-bold">Name: {toyName}</div>
               <div className="text-sm font-bold opacity-50">Category: {category}</div>
-              <div className="text-sm font-bold opacity-50">Price: {price}</div>
+              <div className="text-sm font-bold opacity-50">Price:${price}</div>
               <div className="text-sm font-bold opacity-50">Quantity: {quantity}</div>
             </div>
           </div>

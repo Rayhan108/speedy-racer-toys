@@ -10,13 +10,13 @@ const MyToys = () => {
   useTitle("MyToys");
   const [toys, setToys] = useState([]);
   const { user } = useContext(AuthContext);
-
+const[sortedToys,setSortedToys]=useState([])
   const [activeTab, setActiveTab] = useState("acending");
   useEffect(() => {
     fetch(`https://assignment11-server-mocha.vercel.app/sortby/${activeTab}`)
       .then((res) => res.json())
       .then((data) => {
-        setToys(data);
+        setSortedToys(data);
 
         console.log(data);
       });
@@ -52,7 +52,7 @@ const MyToys = () => {
               confirmButtonText: "Cool",
             });
             const remaining = toys.filter((toy) => toy._id !== id);
-            setToys(remaining);
+            setSortedToys(remaining);
           }
         });
     }
@@ -101,7 +101,7 @@ const MyToys = () => {
             </tr>
           </thead>
           <tbody>
-            {toys.map((toy, i) => (
+            {sortedToys.map((toy, i) => (
               <MyToysTable
                 key={toy._id}
                 toy={toy}
