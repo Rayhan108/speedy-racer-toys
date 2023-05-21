@@ -1,9 +1,9 @@
 const Upcoming = () => {
   return (
-    <div className="mb-10 mt-10 overflow-x-hidden">
+    <div className="mb-10 mt-10 ">
       <h1 className="text-5xl font-extrabold text-center">Upcoming Toys</h1>
       <div
-        className="grid lg:grid-cols-3 sm:grid-cols-1 gap-10 mt-10 overflow-x-hidden"
+        className="grid lg:grid-cols-3 sm:grid-cols-1 gap-10 mt-10 "
         data-aos="flip-down"
         data-aos-duration="1000"
       >

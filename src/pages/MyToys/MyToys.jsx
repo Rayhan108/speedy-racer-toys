@@ -11,20 +11,9 @@ const MyToys = () => {
   const [toys, setToys] = useState([]);
   const { user } = useContext(AuthContext);
     const [sortby, setSortBy] = useState(1);
-// const[sortedToys,setSortedToys]=useState([])
-//   useEffect(() => {
-//     fetch(`https://assignment11-server-mocha.vercel.app/sortby/${activeTab}`)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setSortedToys(data);
-
-//         // console.log(data);
-//       });
-//   }, [activeTab]);
-
  
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys?email=${user?.email}&sortby=${sortby}`)
+    fetch(`https://assignment11-server-mocha.vercel.app/myToys?email=${user?.email}&sortby=${sortby}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

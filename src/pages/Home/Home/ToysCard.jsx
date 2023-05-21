@@ -6,9 +6,10 @@ const ToysCard = ({toy}) => {
     // console.log(toy);
     const {photoUrl,toyName,rating,price,_id}=toy || {};
     return (
-        <div className="card w-96 bg-base-100 shadow-xl overflow-x-hidden" 
-        data-aos="slide-up"
-         data-aos-duration="1000"
+      
+         <div className="card w-96 bg-base-100 shadow-xl " 
+        //data-aos="slide-up"
+        // data-aos-duration="1000"
         >
         <figure className="px-10 pt-10">
           <img src={photoUrl} alt="Shoes" className="rounded-xl" />
@@ -24,6 +25,7 @@ const ToysCard = ({toy}) => {
           </div>
         </div>
       </div>
+     
     );
 };
 
