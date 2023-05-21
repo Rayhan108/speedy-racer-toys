@@ -10,7 +10,7 @@ const MyToys = () => {
   useTitle("MyToys");
   const [toys, setToys] = useState([]);
   const { user } = useContext(AuthContext);
-    const [activeTab, setActiveTab] = useState("acending");
+    const [sortby, setSortBy] = useState(1);
 // const[sortedToys,setSortedToys]=useState([])
 //   useEffect(() => {
 //     fetch(`https://assignment11-server-mocha.vercel.app/sortby/${activeTab}`)
@@ -22,19 +22,15 @@ const MyToys = () => {
 //       });
 //   }, [activeTab]);
 
-  // eslint-disable-next-line no-unused-vars
-  const handleTabClick = (tabName) => {
-    // setActiveTab(tabName);
-  };
-
+ 
   useEffect(() => {
-    fetch(`https://assignment11-server-mocha.vercel.app/myToys/${user?.email}`)
+    fetch(`http://localhost:5000/myToys?email=${user?.email}&sortby=${sortby}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
         // console.log(data);
       });
-  }, [user]);
+  }, [user,sortby]);
 
   const handleDelete = (id) => {
     const proceed = confirm("Are you sure ,you want to delete");
@@ -67,19 +63,19 @@ const MyToys = () => {
       <div className="mb-10">
         <Tabs>
           <TabList className="font-extrabold text-3xl">
-            <Tab onClick={() => handleTabClick("acending")}>Acending</Tab>
-            <Tab onClick={() => handleTabClick("decending")}>Decending</Tab>
+            <Tab onClick={() => setSortBy(1)}>Acending</Tab>
+            <Tab onClick={() => setSortBy(-1)}>Decending</Tab>
           </TabList>
 
           <TabPanel>
-            {activeTab && (
+            {sortby && (
               <h2 className=" text-2xl font-semibold mt-10 text-cyan-800">
                 Low To High
               </h2>
             )}
           </TabPanel>
           <TabPanel>
-            {activeTab && (
+            {sortby && (
               <h2 className="text-2xl font-semibold mt-10 text-cyan-800">
                 High To Low
               </h2>

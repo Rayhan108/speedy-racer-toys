@@ -88,7 +88,7 @@ const AddToy = () => {
           <label className="label">
             <span className="label-text">Price</span>
           </label>
-          <input type="text" placeholder="Price"  {...register("price", { required: true })} className="input input-bordered" />
+          <input type="number" placeholder="Price"  {...register("price", { required: true })} className="input input-bordered" />
           
         </div>
         <div className="form-control">
