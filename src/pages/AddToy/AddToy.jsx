@@ -33,6 +33,7 @@ const AddToy = () => {
         
             }});
           console.log(data);
+          
     }
 
      
@@ -115,7 +116,7 @@ const AddToy = () => {
           
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Add Toy</button>
+          <button  className="btn btn-primary">Add Toy</button>
         </div>
     </form>
       </div>

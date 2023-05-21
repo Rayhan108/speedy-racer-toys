@@ -63,7 +63,7 @@ const Registration = () => {
               </div>
             <div className="form-control">
                 <label className="label">
-                  <span className="label-text">PhotoL</span>
+                  <span className="label-text">PhotoURL</span>
                 </label>
                 <input type="url" placeholder="Photo URL" name="photo" className="input input-bordered" required />
               </div>
