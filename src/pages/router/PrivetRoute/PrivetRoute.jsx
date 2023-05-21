@@ -19,7 +19,7 @@ const PrivetRoute = ({children}) => {
                 title: 'error!',
                 text: 'You have to log in first to go this page',
                 icon: 'error',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'Ok'
               })
           }
     

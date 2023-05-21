@@ -94,19 +94,20 @@ const handleGoogleLogin = () => {
               {show ? <span>Hide Password</span> : <span>Show Password</span>}
             </span>
           </p>
-              <div className="form-control mt-6">
-                
-                <input className="btn btn-primary" type="submit" value="Login" />
-              </div>
-            </form>
-           
-      <p className="text-green-700">
+          <p className="text-green-700">
         {success}
         </p>
       <br />
       <p className="text-red-700 ">
         {error}
         </p>
+              <div className="form-control mt-6">
+                
+                <input className="btn btn-primary" type="submit" value="Login" />
+              </div>
+            </form>
+           
+     
             <p > <span className="font-semibold"> Did not have an Account?</span>  <Link className="text-orange-400 font-bold" to="/register">Register</Link></p>
             </div>
             <div className="text-center">

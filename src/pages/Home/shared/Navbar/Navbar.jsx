@@ -3,6 +3,7 @@ import logo from '../../../../assets/logo3.png'
 import './Navbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const navItems = (
@@ -25,7 +26,14 @@ const Navbar = () => {
   );
   const handleLogOut = () => {
     logout()
-      .then()
+      .then(()=>{
+        Swal.fire({
+          title: 'success!',
+          text: 'Logout Succesfull',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+      })
       .catch((error) => {
         console.log(error.message);
       });
@@ -71,7 +79,7 @@ const Navbar = () => {
     
       <div className="navbar-end">
       <label className=" mr-5">
-         {user&& <div className="tooltip" data-tip={user?.displayName}>
+         {user&& <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
             <img style={{width:"50px"}} className="w-50 rounded-full circle" src={user?.photoURL} />
           </div>}
         </label>

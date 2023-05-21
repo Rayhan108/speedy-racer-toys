@@ -85,9 +85,7 @@ const Registration = () => {
                 
                 <input className="btn btn-primary" type="submit" value="Register" />
               </div>
-            </form>
-            <p > <span className="font-semibold"> Alredy have an Account?</span>  <Link className="text-orange-400 font-bold" to="/login">Login</Link></p>
-            <br />
+              <br />
       <p className="text-green-600">
         {success}
         </p>
@@ -95,6 +93,9 @@ const Registration = () => {
       <p className="text-red-700">
         {error}
         </p>
+            </form>
+            <p > <span className="font-semibold"> Alredy have an Account?</span>  <Link className="text-orange-400 font-bold" to="/login">Login</Link></p>
+      
             </div>
       
         
