@@ -12,6 +12,8 @@ const AddToy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     
     const onSubmit = data => {
+      const price = Number(data.price);
+      data.price =price
         fetch("https://assignment11-server-mocha.vercel.app/post-toys", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -30,7 +32,7 @@ const AddToy = () => {
               
         
             }});
-        //   console.log(data);
+          console.log(data);
     }
 
      
